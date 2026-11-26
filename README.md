@@ -88,7 +88,7 @@ Buka **phpMyAdmin**: <http://localhost/phpmyadmin> → tab **SQL** → tempel se
 
 Hasilnya:
 
-![Basis data db_perpustakaan](screenshots/08-phpmyadmin-db.jpg)
+![Basis data db_perpustakaan](screenshots/07-phpmyadmin-db.jpg)
 
 ### Langkah 4 — Siapkan virtual environment & dependensi
 Dari dalam folder project:
@@ -233,23 +233,22 @@ Hasil terakhir: **16 PASS / 0 FAIL**.
 
 ### 10.1 Basis Data
 
-![Basis data db_perpustakaan](screenshots/08-phpmyadmin-db.jpg)
+![Basis data db_perpustakaan](screenshots/07-phpmyadmin-db.jpg)
 
 ### 10.2 Modul Buku
 
 | Operasi | Tangkapan layar |
 |---------|----------------|
-| **Create** | ![Form tambah buku](screenshots/02-tambah-buku.jpg) |
-| **Read** (daftar + pencarian) | ![Daftar Buku](screenshots/01-daftar-buku.jpg) |
-| **Read** (pesan flash sukses) | ![Pesan Sukses](screenshots/04-pesan-sukses.jpg) |
+| **Create** | ![Form tambah buku](screenshots/01-tambah-buku.jpg) |
+| **Read** (daftar + pencarian) | ![Daftar Buku](screenshots/02-daftar-buku.jpg) |
 | **Update** (kolom ID *readonly*) | ![Edit Buku](screenshots/03-edit-buku.jpg) |
-| **Delete** ditolak *foreign key* (error 1451) | ![Hapus Ditolak](screenshots/05-hapus-ditolak.jpg) |
+| **Delete** ditolak *foreign key* (error 1451) | ![Hapus Ditolak](screenshots/04-hapus-ditolak.jpg) |
 
 ### 10.3 Modul Peminjaman
 
 | Operasi | Tangkapan layar |
 |---------|----------------|
-| **Create** (dropdown anggota & buku yang stoknya tersedia) | ![Pinjam Buku](screenshots/07-pinjam-buku.jpg) |
+| **Create** (dropdown anggota & buku yang stoknya tersedia) | ![Pinjam Buku](screenshots/05-pinjam-buku.jpg) |
 | **Read** (INNER JOIN + filter status + badge keterlambatan) | ![Daftar Peminjaman](screenshots/06-daftar-peminjaman.jpg) |
 
 ---
