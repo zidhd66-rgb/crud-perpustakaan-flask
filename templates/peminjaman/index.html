@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}Data Peminjaman{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>Data Peminjaman</h3>
+    <a href="{{ url_for('peminjaman.tambah') }}" class="btn btn-success">+ Pinjam Buku</a>
+</div>
+
+<form method="get" class="mb-3 d-flex gap-2 align-items-center">
+    <label for="status">Status:</label>
+    <select name="status" id="status" class="form-select w-auto" onchange="this.form.submit()">
+        <option value="">Semua</option>
+        <option value="dipinjam" {{ 'selected' if status == 'dipinjam' }}>Dipinjam</option>
+        <option value="kembali" {{ 'selected' if status == 'kembali' }}>Kembali</option>
+    </select>
+</form>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-light">
+    <tr>
+        <th>ID</th><th>Anggota</th><th>Judul Buku</th><th>Tgl Pinjam</th>
+        <th>Tgl Kembali</th><th>Status</th><th>Aksi</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for p in daftar %}
+        <tr>
+            <td>{{ p.id_pinjam }}</td>
+            <td>{{ p.nama }}</td>
+            <td>{{ p.judul }}</td>
+            <td>{{ p.tgl_pinjam }}</td>
+            <td>{{ p.tgl_kembali or '-' }}</td>
+            <td>
+                {% if p.status == 'kembali' %}
+                    <span class="badge bg-success">kembali</span>
+                {% elif p.hari_terlambat > 0 %}
+                    <span class="badge bg-danger">terlambat {{ p.hari_terlambat }} hari</span>
+                {% else %}
+                    <span class="badge bg-warning text-dark">dipinjam</span>
+                {% endif %}
+            </td>
+            <td>
+                {% if p.status == 'dipinjam' %}
+                <form action="{{ url_for('peminjaman.kembalikan', id_pinjam=p.id_pinjam) }}"
+                      method="post" class="d-inline">
+                    <button class="btn btn-sm btn-primary">Kembalikan</button>
+                </form>
+                {% endif %}
+                <form action="{{ url_for('peminjaman.hapus', id_pinjam=p.id_pinjam) }}"
+                      method="post" class="d-inline" onsubmit="return confirm('Hapus transaksi ini?')">
+                    <button class="btn btn-sm btn-danger">Hapus</button>
+                </form>
+            </td>
+        </tr>
+    {% else %}
+        <tr><td colspan="7" class="text-center">Belum ada transaksi</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
