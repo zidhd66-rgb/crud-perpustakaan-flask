@@ -5,14 +5,14 @@
 **Teknologi yang dipilih:** **Python (Flask)** + PyMySQL + MySQL/MariaDB
 **Database:** `db_perpustakaan`
 
-## 📌 Identitas Mahasiswa
+## Identitas Mahasiswa
 
 | | |
 |---|---|
 | **Nama** | Zaidan Fayyadh Ha'il Daffa |
 | **NIM** | 26091397123 |
 | **Kelas** | 2026D |
-
+| **Matkul** | Basis Data|
 ---
 
 Aplikasi CRUD untuk mengelola **buku** dan **transaksi peminjaman** pada sebuah perpustakaan.
